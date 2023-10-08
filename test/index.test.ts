@@ -1,5 +1,5 @@
-const { convertTimeString } = require('../src/main');
-const { TimeUnitOutPut } = require('../src/enums');
+import { convertTimeString } from '../src/main';
+import { TimeUnitOutPut } from '../src/enums';
 
 describe('convertTimeString', () => {
     it('should throw an error for invalid time unit', () => {
@@ -10,8 +10,8 @@ describe('convertTimeString', () => {
     it('should throw an error for invalid time string', () => {
         expect(() => convertTimeString('abc')).toThrowError('Invalid time string');
         expect(() => convertTimeString('abc1')).toThrowError('Invalid time string');
-        expect(() => convertTimeString(null)).toThrowError('Invalid time string');
-        expect(() => convertTimeString(undefined)).toThrowError('Invalid time string');
+        expect(() => convertTimeString(null as any)).toThrowError('Invalid time string');
+        expect(() => convertTimeString(undefined as any)).toThrowError('Invalid time string');
     });
 
     it('should convert time string to milliseconds', () => {
@@ -22,7 +22,7 @@ describe('convertTimeString', () => {
         expect(convertTimeString('1w')).toBe(604800000);
         expect(convertTimeString('1M')).toBe(2592000000);
         expect(convertTimeString('1y')).toBe(31536000000);
-        expect(convertTimeString('1y', null, true)).toBe(31622400000);
+        expect(convertTimeString('1y', null as any, true)).toBe(31622400000);
 
         expect(convertTimeString('1m1s')).toBe(61000);
         expect(convertTimeString('1h1m1s')).toBe(3661000);
@@ -30,8 +30,9 @@ describe('convertTimeString', () => {
         expect(convertTimeString('1w1d1h1m1s')).toBe(694861000);
         expect(convertTimeString('1M1w1d1h1m1s')).toBe(3286861000);
         expect(convertTimeString('1y1M1w1d1h1m1s')).toBe(34822861000);
-        expect(convertTimeString('1y1M1w1d1h1m1s', null, true)).toBe(34909261000);
-        expect(convertTimeString('1y1d', null, true)).toBe(31708800000);
+        expect(convertTimeString('1y1M1w1d1h1m1s', null as any, true)).toBe(34909261000);
+        expect(convertTimeString('1y1d', null as any, true)).toBe(31708800000);
+        expect(convertTimeString('1y 1d', null as any, true)).toBe(31708800000);
     });
 
     it('should convert time string to seconds', () => {
@@ -52,5 +53,6 @@ describe('convertTimeString', () => {
         expect(convertTimeString('1y1M1w1d1h1m1s')).toBe(34822861000);
         expect(convertTimeString('1y1M1w1d1h1m1s', TimeUnitOutPut.SECOND, true)).toBe(34909261);
         expect(convertTimeString('1y1d', TimeUnitOutPut.SECOND, true)).toBe(31708800);
+        expect(convertTimeString('1y 1d', TimeUnitOutPut.SECOND, true)).toBe(31708800);
     });
 });
