@@ -30,3 +30,7 @@ import { TimeUnitOutPut } from './enums';
  * console.log(timeValue); // Output: 31708800000
  */
 export declare function convertTimeString(timeString: string, unitOutPut?: TimeUnitOutPut, leapYear?: boolean): number;
+declare const _default: {
+    convertTimeString: typeof convertTimeString;
+};
+export default _default;
