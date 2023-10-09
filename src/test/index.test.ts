@@ -1,5 +1,5 @@
-import { convertTimeString } from '../src/main';
-import { TimeUnitOutPut } from '../src/enums';
+import { convertTimeString } from '../main';
+import { TimeUnitOutPut } from '../enums';
 
 describe('convertTimeString', () => {
     it('should throw an error for invalid time unit', () => {

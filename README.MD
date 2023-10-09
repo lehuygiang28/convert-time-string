@@ -1,8 +1,8 @@
 # convert-time-string
 
-The Javascript/Typescript library that convert time string to seconds or milliseconds.
+The JavaScript/TypeScript library that convert time string to seconds or milliseconds.
 
-Installation:
+## Installation:
 
 Install `convert-time-string` using npm:
 
@@ -22,7 +22,7 @@ Install `convert-time-string` using pnpm:
 pnpm add convert-time-string
 ```
 
-Usage
+## Usage
 
 The `convertTimeString` function takes a time string as input and returns the corresponding number of milliseconds. The time string can be in the format of a single time unit (e.g. "1h") or multiple time units separated by spaces or without spaces (e.g. "1h 30m" or "1h30m").
 
@@ -34,7 +34,13 @@ const { convertTimeString } = require('convert-time-string');
 import { convertTimeString } from 'convert-time-string';
 ```
 
-Options Parameters:
+Parameters:
+
+```typescript
+import { TimeUnitOutPut } from 'convert-time-string';
+
+convertTimeString(timeString: string, unitOutPut?: TimeUnitOutPut | string, leapYear?: boolean): number;
+```
 
 -   `timeString`: The time string to convert.
     ```typescript
@@ -43,6 +49,7 @@ Options Parameters:
     console.log(timeValue); // Output: 5400000
     ```
 -   `unitOutPut`: The time unit to convert to. Can be "second" or "millisecond". Default is "millisecond".
+Hint: You can use the `TimeUnitOutPut` enum to avoid typo.
 
     ```typescript
     const timeString = '1h 30m';
