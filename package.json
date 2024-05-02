@@ -4,7 +4,7 @@
         "type": "git",
         "url": "git+https://github.com/lehuygiang28/convert-time-string.git"
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "The Javascript/Typescript library that convert time string to seconds or milliseconds.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
